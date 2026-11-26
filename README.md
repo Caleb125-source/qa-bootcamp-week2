@@ -15,7 +15,7 @@ TypeScript basics covered today, one file per topic, in `src/ts-basics/`:
 
 ### Running the files
 
-    npx tsx src/ts-basics/tuples.ts
+    npx tsx src/ts-basics/<file name>
     npx tsx src/profile-validator.ts
 
 `tsx` doesn't check types. To type-check everything:
