@@ -7,7 +7,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "playwright test"
+    "test": "playwright test",
+    "test:bdd": "cucumber-js"
   },
   "repository": {
     "type": "git",
@@ -22,9 +23,11 @@
   },
   "homepage": "https://github.com/Caleb125-source/type-script#readme",
   "devDependencies": {
+    "@cucumber/cucumber": "^13.3.0",
     "@playwright/test": "^1.65.1",
     "@types/node": "^22.20.7",
     "dotenv": "^16.6.1",
+    "tsx": "^4.23.15",
     "typescript": "^5.9.3"
   }
 }

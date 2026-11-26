@@ -36,7 +36,15 @@ If any tests fail, run `npx playwright show-report` to see what happened, includ
 
 `.env` holds two settings: `BASE_URL` for the website and `API_URL` for the API, which lives on a different host.
 
-## Week 2 Day 6: TypeScript basics
+## Cucumber-js scenario (BDD)
+
+`features/cart.feature` describes a cart flow in plain English (Given / When / Then). Each line is connected to a step definition in `features/step_definitions/cart.steps.ts`. After the same setup as above, run it with:
+
+    npm run test:bdd
+
+The scenario creates its own cart through the API, and an `After` hook in `features/support/world.ts` deletes it, even if a step fails.
+
+## TypeScript basics
 
 TypeScript basics covered on day 6, one file per topic, in `src/ts-basics/`:
 

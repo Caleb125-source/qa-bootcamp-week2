@@ -1,0 +1,8 @@
+{
+  "default": {
+    "paths": ["features/**/*.feature"],
+    "requireModule": ["tsx/cjs"],
+    "require": ["features/support/**/*.ts", "features/step_definitions/**/*.ts"],
+    "format": ["pretty"]
+  }
+}
