@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-// full API address: the UI site and the API live on different hosts
-const API_URL = 'https://api.practicesoftwaretesting.com';
+// the API lives on a different host from the UI site, so it has its own setting in .env
+const API_URL = process.env.API_URL;
 
 // the id of the cart the current test created, so afterEach can remove it.
 // tests in one file run one after another in the same worker, and beforeEach resets it,
