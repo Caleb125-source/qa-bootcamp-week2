@@ -78,6 +78,23 @@ Supporting files:
 
 C1 covers everything `search.spec.ts` (Day 7) and `search-by-name.spec.ts` (Day 8) check, and more. The two older tests stay as earlier deliverables, and can be removed once they're no longer needed.
 
+### Flakiness drill
+
+| File | Type | What it checks |
+|---|---|---|
+| `tests/drill/save-message.spec.ts` | UI | Clicking Save on the trainer's drill page shows the message "Saved" |
+
+The drill page, `tests/drill/index.html`, shows "Saved" after a random delay of 0 to 1000 ms.
+
+| Version | How the test waits | Result over 20 runs |
+|---|---|---|
+| Unfixed | A fixed 500 ms wait, then reads the message once with a plain check | 13 passed, 7 failed. Every failure was `Expected: "Saved"`, `Received: ""` |
+| Fixed | `expect(locator).toHaveText('Saved')`, which keeps checking until the message appears | 20 passed |
+
+The unfixed lines are kept as comments in the test file, above the fix. To run the drill 20 times:
+
+    npx playwright test tests/drill --repeat-each=20 --reporter=line
+
 ## Run the tests
 
 You need Node.js 20 or newer (check with `node -v`).
@@ -95,7 +112,7 @@ You need Node.js 20 or newer (check with `node -v`).
 
        npm test
 
-All 10 tests should pass. The defaults in `.env` point at the public Toolshop site, so you don't need to change anything. `.env` holds two settings: `BASE_URL` for the website and `API_URL` for the API, which lives on a different host.
+All 11 tests should pass. The defaults in `.env` point at the public Toolshop site, so you don't need to change anything. `.env` holds two settings: `BASE_URL` for the website and `API_URL` for the API, which lives on a different host.
 
 If any tests fail, run `npx playwright show-report` to see what happened, including a trace for each failing test.
 
