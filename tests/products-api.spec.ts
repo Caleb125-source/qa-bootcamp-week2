@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-// full API address: the UI site and the API live on different hosts,
-// so a bare '/products' would hit the wrong one
-const API_URL = 'https://api.practicesoftwaretesting.com';
+// the API lives on a different host from the UI site, so it has its own setting in .env
+// (a bare '/products' would go to the UI site's baseURL)
+const API_URL = process.env.API_URL;
 
 test('GET /products returns 200 and the first page of products', async ({ request }) => {
   const response = await request.get(`${API_URL}/products`);

@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('search for pliers only returns pliers', async ({ page }) => {
-  await page.goto('https://practicesoftwaretesting.com/');
+  await page.goto('/');
 
   // the search box is a plain textbox, not a searchbox, so getByRole('searchbox') won't find it
   await page.getByRole('textbox', { name: 'Search' }).fill('pliers');
